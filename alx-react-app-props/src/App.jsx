@@ -1,13 +1,13 @@
-
 import ProfilePage from './ProfilePage';
 import UserContext from './UserContext';
+
 function App() {
-  const userData = { name: "faith iheabata", email: "Faithiheabata1@gmail.com" };
+  const userData = { name: "Faith", email: "faith@gmail.com" };
 
   return (
-    
+   
     <UserContext.Provider value={userData}>
-      <ProfilePage /> 
+      <ProfilePage />
     </UserContext.Provider>
   );
 }
