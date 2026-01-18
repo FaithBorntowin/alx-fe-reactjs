@@ -1,4 +1,0 @@
-import  useContext 
-const UserContext = React.createContext();
-
-export default UserContext;
