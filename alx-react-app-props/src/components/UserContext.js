@@ -8,6 +8,12 @@ function UserDetails() {
     </div>
   );
 }
+// src/components/UserContext.js
+import { createContext } from "react";
+
+const UserContext = createContext();
+
+export default UserContext;
 
 
 export default UserDetails;
