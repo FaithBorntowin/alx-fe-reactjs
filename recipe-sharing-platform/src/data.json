@@ -1,14 +1,85 @@
 [
   {
     "id": 1,
-    "title": "Spaghetti Carbonara",
-    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Spaghetti Bolognese",
+    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5",
+    "ingredients": [
+      "200g spaghetti",
+      "Minced beef",
+      "Tomato sauce",
+      "Onion",
+      "Garlic",
+      "Olive oil",
+      "Salt",
+      "Pepper"
+    ],
+    "instructions": [
+      "Boil spaghetti according to package instructions.",
+      "Heat oil in a pan and sauté onion and garlic.",
+      "Add minced beef and cook until brown.",
+      "Pour in tomato sauce and simmer for 10 minutes.",
+      "Serve sauce over spaghetti."
+    ]
   },
+
   {
     "id": 2,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Chicken Fried Rice",
+    "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b",
+    "ingredients": [
+      "Cooked rice",
+      "Chicken breast",
+      "Soy sauce",
+      "Carrots",
+      "Green peas",
+      "Eggs",
+      "Onion",
+      "Garlic"
+    ],
+    "instructions": [
+      "Cook chicken and cut into small pieces.",
+      "Scramble eggs in a pan and set aside.",
+      "Sauté garlic and onion.",
+      "Add vegetables and rice.",
+      "Mix in chicken, eggs, and soy sauce."
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "Pancakes",
+    "image": "https://images.unsplash.com/photo-1587731556938-38755b4803a6",
+    "ingredients": [
+      "Flour",
+      "Milk",
+      "Eggs",
+      "Sugar",
+      "Baking powder",
+      "Butter"
+    ],
+    "instructions": [
+      "Mix dry ingredients in a bowl.",
+      "Add milk and eggs and whisk until smooth.",
+      "Heat butter in a pan.",
+      "Pour batter and cook until bubbles form.",
+      "Flip and cook the other side."
+    ]
+  },
+
+  {
+    "id": 4,
+    "title": "Grilled Cheese Sandwich",
+    "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af",
+    "ingredients": [
+      "Bread slices",
+      "Cheddar cheese",
+      "Butter"
+    ],
+    "instructions": [
+      "Butter one side of each bread slice.",
+      "Place cheese between bread slices.",
+      "Grill on medium heat until golden brown.",
+      "Flip and cook the other side."
+    ]
   }
 ]
