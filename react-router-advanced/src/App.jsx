@@ -1,38 +1,29 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Profile from "./components/Profile";
-import ProfileDetails from "./pages/ProfileDetails";
 
-import Posts from "./pages/Posts";
-import PostDetails from "./pages/PostDetails";
-import NotFound from "./pages/NotFound";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import ProfileDetails from "./components/ProfileDetails";
+import ProfileSettings from "./components/ProfileSettings";
+import Posts from "./components/Posts";
+import PostDetails from "./components/PostDetails";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
-  // simple auth simulation
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <BrowserRouter>
-      <Navbar
-        isAuthenticated={isAuthenticated}
-        onLogout={() => setIsAuthenticated(false)}
-      />
+      <Navbar isAuthenticated={isAuthenticated} />
 
       <Routes>
         <Route path="/" element={<Home />} />
 
         <Route
           path="/login"
-          element={
-            <Login
-              isAuthenticated={isAuthenticated}
-              onLogin={() => setIsAuthenticated(true)}
-            />
-          }
+          element={<Login onLogin={() => setIsAuthenticated(true)} />}
         />
 
         {/* Dynamic routing */}
@@ -48,14 +39,9 @@ export default function App() {
             </ProtectedRoute>
           }
         >
-          {/* nested routes */}
-          <Route index element={<Navigate to="details" replace />} />
           <Route path="details" element={<ProfileDetails />} />
           <Route path="settings" element={<ProfileSettings />} />
         </Route>
-
-        {/* 404 */}
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
