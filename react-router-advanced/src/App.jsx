@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
 import ProfileDetails from "./pages/ProfileDetails";
 
 import Posts from "./pages/Posts";
