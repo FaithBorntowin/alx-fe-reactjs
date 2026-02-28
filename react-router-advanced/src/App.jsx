@@ -1,48 +1,35 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Profile from "./components/Profile";
-import ProfileDetails from "./components/ProfileDetails";
-import ProfileSettings from "./components/ProfileSettings";
-import Posts from "./components/Posts";
-import PostDetails from "./components/PostDetails";
+import { AuthProvider } from "./context/AuthContext";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import BlogPost from "./pages/BlogPost";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+function App() {
   return (
-    <BrowserRouter>
-      <Navbar isAuthenticated={isAuthenticated} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/login"
-          element={<Login onLogin={() => setIsAuthenticated(true)} />}
-        />
+          <Route
+            path="/profile/*"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Dynamic routing */}
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/posts/:postId" element={<PostDetails />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
 
-        {/* Protected + Nested routing */}
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Profile />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="details" element={<ProfileDetails />} />
-          <Route path="settings" element={<ProfileSettings />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
+
+export default App;
