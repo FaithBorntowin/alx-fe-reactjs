@@ -1,6 +1,13 @@
-// src/App.jsx
 import TodoList from "./components/TodoList";
+import './App.css'
 
-export default function App() {
-  return <TodoList />;
+function App() {
+
+  return (
+    <>
+      <TodoList />
+    </>
+  )
 }
+
+export default App
