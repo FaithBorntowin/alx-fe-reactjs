@@ -1,69 +1,65 @@
-// src/components/TodoList.jsx
 import { useState } from "react";
 import AddTodoForm from "./AddTodoForm";
 
-const INITIAL_TODOS = [
-  { id: 1, text: "Learn React Testing Library", completed: false },
-  { id: 2, text: "Build Todo App", completed: true },
-  { id: 3, text: "Push to GitHub", completed: false },
-];
+function TodoList() {
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Learn React", completed: false },
+    { id: 2, text: "Write Tests", completed: false },
+    { id: 3, text: "Build Projects", completed: false },
+  ]);
 
-export default function TodoList() {
-  const [todos, setTodos] = useState(INITIAL_TODOS);
-
-  function addTodo(text) {
+  const addTodo = (text) => {
     const newTodo = {
-      id: Date.now(), // ok for demo (unique enough for this task)
+      id: Date.now(),
       text,
       completed: false,
     };
-    setTodos((prev) => [newTodo, ...prev]);
-  }
+    setTodos([...todos, newTodo]);
+  };
 
-  function toggleTodo(id) {
-    setTodos((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t))
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      )
     );
-  }
+  };
 
-  function deleteTodo(id) {
-    setTodos((prev) => prev.filter((t) => t.id !== id));
-  }
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
 
   return (
-    <section>
-      <h1>Todo List</h1>
+    <div>
+      <h2>Todo List</h2>
 
-      <AddTodoForm onAdd={addTodo} />
+      <AddTodoForm addTodo={addTodo} />
 
-      <ul aria-label="todo-list">
+      <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             <span
-              role="button"
-              tabIndex={0}
-              aria-label={`todo-item-${todo.id}`}
               onClick={() => toggleTodo(todo.id)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") toggleTodo(todo.id);
-              }}
               style={{
+                textDecoration: todo.completed
+                  ? "line-through"
+                  : "none",
                 cursor: "pointer",
-                textDecoration: todo.completed ? "line-through" : "none",
               }}
             >
               {todo.text}
             </span>
 
-            <button
-              aria-label={`delete-${todo.id}`}
-              onClick={() => deleteTodo(todo.id)}
-            >
+            <button onClick={() => deleteTodo(todo.id)}>
               Delete
             </button>
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 }
+
+export default TodoList;
